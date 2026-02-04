@@ -1,32 +1,33 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8">
   <title>For Yuktha ❤️</title>
-  <link rel="stylesheet" href="style.css" />
 </head>
-
 <body>
 
-  <!-- Background hearts -->
-  <div class="hearts"></div>
+<h1 id="msg">Loading...</h1>
 
-  <!-- Music -->
-  <audio id="music" src="song.mp3" loop></audio>
+<script>
+alert("JS IS WORKING");
 
-  <!-- Main card -->
-  <div class="card heartbeat">
+const messages = [
+  "Hi Yuktha ❤️",
+  "This is a small surprise",
+  "Because we are in long distance",
+  "But you are always in my heart"
+];
 
-    <h2 id="title"></h2>
-    <p id="text"></p>
+let i = 0;
+function show(){
+  if(i < messages.length){
+    document.getElementById("msg").innerText = messages[i];
+    i++;
+    setTimeout(show, 2000);
+  }
+}
+show();
+</script>
 
-    <!-- Slideshow -->
-    <div class="photos">
-      <img id="slide" />
-    </div>
-
-  </div>
-
-  <script src="script.js"></script>
 </body>
 </html>
