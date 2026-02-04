@@ -1,32 +1,13 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <meta charset="UTF-8">
-  <title>For Yuktha ❤️</title>
-</head>
 <body>
 
-<h1 id="msg">Loading...</h1>
+<h1 id="msg">Loading…</h1>
 
 <script>
 alert("JS IS WORKING");
 
-const messages = [
-  "Hi Yuktha ❤️",
-  "This is a small surprise",
-  "Because we are in long distance",
-  "But you are always in my heart"
-];
-
-let i = 0;
-function show(){
-  if(i < messages.length){
-    document.getElementById("msg").innerText = messages[i];
-    i++;
-    setTimeout(show, 2000);
-  }
-}
-show();
+document.getElementById("msg").innerText = "JavaScript is running ❤️";
 </script>
 
 </body>
