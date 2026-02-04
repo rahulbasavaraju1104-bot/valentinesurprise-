@@ -1,114 +1,59 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'Poppins', sans-serif;
-}
-
 body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(120deg, #12000a, #000);
+  color: white;
   height: 100vh;
-  background: linear-gradient(135deg, #ffb6c1, #ffdde1);
   display: flex;
   justify-content: center;
   align-items: center;
-  overflow: hidden;
 }
 
-/* HEART BACKGROUND */
-.hearts::before {
-  content: "❤️ 💕 💖 💗 💘";
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  font-size: 30px;
-  opacity: 0.15;
-  animation: floatHearts 20s linear infinite;
-}
-
-@keyframes floatHearts {
-  from { transform: translateY(100%); }
-  to { transform: translateY(-100%); }
-}
-
-/* CARD */
-.card {
-  background: white;
-  width: 85%;
-  max-width: 350px;
-  padding: 25px;
-  border-radius: 20px;
+#screen {
   text-align: center;
-  box-shadow: 0 20px 40px rgba(0,0,0,0.2);
-  animation: heartbeat 2s infinite;
+  max-width: 90%;
 }
 
-@keyframes heartbeat {
-  0%, 100% { transform: scale(1); }
-  50% { transform: scale(1.03); }
-}
-
-h2 {
-  color: #ff3366;
-  margin-bottom: 15px;
+h1 {
+  font-size: 32px;
 }
 
 p {
-  color: #444;
-  line-height: 1.6;
-  font-size: 15px;
+  font-size: 18px;
+  line-height: 1.7;
 }
 
-/* BUTTON */
-button {
-  margin-top: 20px;
-  padding: 10px 25px;
-  background: #ff3366;
-  color: white;
+.heart-btn {
+  margin-top: 30px;
+  padding: 14px 34px;
+  font-size: 18px;
+  border-radius: 50px;
   border: none;
-  border-radius: 30px;
-  font-size: 16px;
+  background: linear-gradient(135deg, #ff4d6d, #ff758f);
+  color: white;
   cursor: pointer;
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.08); }
+  100% { transform: scale(1); }
 }
 
 /* FINAL SCREEN */
-.hidden {
-  display: none;
-}
 
-#finalCelebration {
+.final {
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
   text-align: center;
 }
 
-#finalPhoto {
-  width: 220px;
-  height: 220px;
-  border-radius: 50%;
-  object-fit: cover;
-  margin-bottom: 20px;
-  box-shadow: 0 0 25px #ff3366;
-}
-
-.final-text {
-  color: #ff3366;
-  font-size: 22px;
-  line-height: 1.6;
-}
-/* ===== GRAND FINAL SCREEN ===== */
-
-.final-grand {
-  position: relative;
-  height: 100vh;
-  width: 100%;
-  overflow: hidden;
-  background: radial-gradient(circle at top, #300016, #000);
-}
-
-/* Heart Rain */
 .heart {
   position: absolute;
   top: -10%;
-  font-size: 18px;
-  color: rgba(255, 60, 120, 0.8);
+  font-size: 20px;
   animation: fall linear infinite;
 }
 
@@ -119,60 +64,23 @@ button {
   }
 }
 
-/* Names Glow */
-.names {
-  font-size: 42px;
-  letter-spacing: 6px;
-  margin-top: 30px;
-  text-align: center;
-}
-
 .names span {
+  font-size: 38px;
   opacity: 0;
   animation: glow 0.6s forwards;
 }
 
 @keyframes glow {
-  from {
-    opacity: 0;
-    text-shadow: none;
-  }
   to {
     opacity: 1;
-    text-shadow: 0 0 20px #ff4d6d, 0 0 40px #ff4d6d;
+    text-shadow: 0 0 25px pink;
   }
 }
 
-/* Heart Frame */
-.photo-heart {
-  width: 260px;
-  height: 230px;
-  margin: 30px auto;
-  background: url("images/heart-frame.png") no-repeat center/contain;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  animation: beat 1.8s infinite;
-}
-
-@keyframes beat {
-  0%,100% { transform: scale(1); }
-  50% { transform: scale(1.06); }
-}
-
-.photo-heart img {
+.photos img {
   width: 120px;
   height: 120px;
   border-radius: 50%;
-  margin: 0 6px;
-  object-fit: cover;
-}
-
-/* Final Text */
-.final-text {
-  font-size: 18px;
-  line-height: 1.8;
-  text-align: center;
-  max-width: 90%;
-  margin: auto;
+  margin: 15px;
+  box-shadow: 0 0 25px pink;
 }
