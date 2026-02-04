@@ -54,3 +54,69 @@ button{
   font-size:16px;
   cursor:pointer;
 }
+.final {
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(circle, #ff5f8a, #14000a);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  z-index: 999;
+  animation: fadeIn 2s ease-in;
+}
+
+.hidden {
+  display: none;
+}
+
+/* Heart with photos */
+.heart-container {
+  width: 260px;
+  height: 230px;
+  position: relative;
+  clip-path: path("M130 30 C130 0, 0 0, 0 80 C0 150, 130 210, 130 210 C130 210, 260 150, 260 80 C260 0, 130 0, 130 30 Z");
+  box-shadow: 0 0 30px #ff4d6d;
+  animation: heartbeat 1.6s infinite;
+}
+
+.photo {
+  position: absolute;
+  width: 50%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.photo.left { left: 0; }
+.photo.right { right: 0; }
+
+/* Names */
+#names {
+  font-size: 42px;
+  margin-top: 30px;
+  letter-spacing: 4px;
+  color: #fff;
+  text-shadow: 0 0 10px pink;
+}
+
+/* Text */
+.final-text {
+  margin-top: 20px;
+  font-size: 18px;
+  line-height: 1.6;
+  opacity: 0;
+  animation: fadeIn 3s forwards;
+  animation-delay: 4s;
+}
+
+/* Animations */
+@keyframes heartbeat {
+  0%,100% { transform: scale(1); }
+  50% { transform: scale(1.08); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
