@@ -65,4 +65,8 @@ setInterval(()=>{
   setTimeout(()=>h.remove(),10000);
 },500);
 
-nextScreen();
+document.getElementById("startBtn").onclick = () => {
+  document.getElementById("startBtn").style.display = "none";
+  bgm.play().catch(()=>{});
+  nextScreen();
+};
