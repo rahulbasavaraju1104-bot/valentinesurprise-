@@ -19,7 +19,7 @@ const slides = [
 
   { t:"My Wish", c:"Will you be my Valentine?\nWill you marry me? ❤️" },
 
-  { t:"Forever Us 💖", c:"Happy Valentine’s Day baby.\nThis is my first Valentine after long gap.\nThank you for being in my life.\n— Rahul ❤️" }
+  { t:"Forever Us 💖", c:"Happy Valentine’s Day baby.\nThis is my first Valentine after long gap.\nI prepared this with all my heart.\n— Rahul ❤️" }
 ];
 
 let index = 0;
@@ -62,8 +62,6 @@ function showSlide() {
   `;
 
   typeText(s.c);
-
-  document.getElementById("bgm").play().catch(()=>{});
 }
 
 let imgIndex = 1;
@@ -77,6 +75,11 @@ function startSlideshow() {
 }
 
 function next() {
+  const music = document.getElementById("bgm");
+  if (music.paused) {
+    music.play().catch(()=>{});
+  }
+
   index++;
   if (index < slides.length) showSlide();
 }
