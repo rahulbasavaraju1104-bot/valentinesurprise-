@@ -121,3 +121,19 @@ if (index === screens.length) {
   document.querySelector('.card').style.display = "none";
   document.getElementById('finalCelebration').classList.remove('hidden');
 }
+const finalMessage =
+"Happy Valentine’s Day Baby ❤️\n\n" +
+"Don’t feel bad that we can’t meet.\n" +
+"I made this with all my love 💕";
+
+function typeFinalMessage() {
+  const el = document.getElementById("typingFinal");
+  let i = 0;
+  el.innerHTML = "";
+
+  const typing = setInterval(() => {
+    el.innerHTML += finalMessage[i] === "\n" ? "<br>" : finalMessage[i];
+    i++;
+    if (i >= finalMessage.length) clearInterval(typing);
+  }, 80); // typing speed (smaller = faster)
+}
