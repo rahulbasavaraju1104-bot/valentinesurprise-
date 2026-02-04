@@ -117,9 +117,7 @@ btn.onclick = () => {
   }
 
   index++;
-  if (index < screens.length) {
-    showScreen();
-  } else {
-    btn.style.display = "none";
-  }
-};
+if (index === screens.length) {
+  document.querySelector('.card').style.display = "none";
+  document.getElementById('finalCelebration').classList.remove('hidden');
+}
