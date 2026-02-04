@@ -48,23 +48,78 @@ const screens = [
     c: "Sometimes I may hurt you,\nbut I can't live without you.\n\nJagavaa marethe\nNinnaa berethe...\nHosadondhu looo..ka nodidhe"
   },
   {
-    t: "My Question",
-    c: "How did I change your life?\nHow do you feel about me?"
-  },
-  {
     t: "Our Memories ❤️",
     c: "Yuktha ❤️ Rahul"
   },
   {
     t: "Happy Valentine's Day ❤️",
-    c: "Happy Valentine's Day baby.\nDon't feel bad that we couldn't meet.\nBecause of distance, I prepared this for you.\nI hope you felt my love.\nThank you for everything."
+    c: "Happy Valentine's Day baby.\nDon't feel bad that we couldn't meet.\nBecause of distance, I prepared this for you.\nI hope you felt my love.\nThank you for everything. ❤️"
   }
 ];
 
 let index = 0;
 let musicStarted = false;
+let slideshowStarted = false;
 
 function showScreen() {
   const s = screens[index];
   title.innerText = s.t;
   text.innerText = s.c;
+  photo.style.display = "none";
+}
+
+function startSlideshow() {
+  slideshowStarted = true;
+  btn.style.display = "none";
+
+  title.innerText = "Our Memories ❤️";
+  text.innerText = "Every picture holds my heartbeat.";
+  photo.style.display = "block";
+
+  const images = [
+    "images/pic1.jpg",
+    "images/pic2.jpg",
+    "images/pic3.jpg",
+    "images/pic4.jpg"
+  ];
+
+  let i = 0;
+  photo.src = images[i];
+
+  const interval = setInterval(() => {
+    i++;
+    if (i < images.length) {
+      photo.src = images[i];
+    } else {
+      clearInterval(interval);
+      setTimeout(() => {
+        index++;
+        showScreen();
+      }, 3000);
+    }
+  }, 5000); // 5 sec per photo (cinematic)
+}
+
+// first screen
+showScreen();
+
+btn.onclick = () => {
+  if (!musicStarted) {
+    bgm.volume = 0.5;
+    bgm.play().catch(() => {});
+    musicStarted = true;
+  }
+
+  // when reaching slideshow screen
+  if (screens[index].t === "Our Memories ❤️" && !slideshowStarted) {
+    startSlideshow();
+    return;
+  }
+
+  index++;
+  if (index < screens.length) {
+    showScreen();
+  } else {
+    btn.style.display = "none";
+  }
+};
