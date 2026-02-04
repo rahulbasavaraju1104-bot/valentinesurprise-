@@ -94,3 +94,86 @@ function typeFinalMessage() {
     if (i >= finalMessage.length) clearInterval(typing);
   }, 80);
 }
+/* ===== GRAND FINAL SCREEN LOGIC ===== */
+
+function showGrandFinal() {
+  const container = document.getElementById("screen");
+  container.innerHTML = `
+    <div class="final-grand">
+      <div id="hearts"></div>
+
+      <div class="names" id="names"></div>
+
+      <div class="photo-heart">
+        <img src="images/her.jpg">
+        <img src="images/me.jpg">
+      </div>
+
+      <div class="final-text" id="finalText"></div>
+    </div>
+  `;
+
+  startHeartRain();
+  animateNames("RAHUL ❤️ YUKTHA");
+  typeFinalText();
+}
+
+/* Heart Rain */
+function startHeartRain() {
+  const hearts = document.getElementById("hearts");
+  setInterval(() => {
+    const h = document.createElement("div");
+    h.className = "heart";
+    h.innerHTML = "❤";
+    h.style.left = Math.random() * 100 + "vw";
+    h.style.animationDuration = 3 + Math.random() * 3 + "s";
+    hearts.appendChild(h);
+    setTimeout(() => h.remove(), 6000);
+  }, 300);
+}
+
+/* Names Animation */
+function animateNames(text) {
+  const el = document.getElementById("names");
+  [...text].forEach((ch, i) => {
+    const span = document.createElement("span");
+    span.textContent = ch;
+    span.style.animationDelay = i * 0.15 + "s";
+    el.appendChild(span);
+  });
+}
+
+/* Typing Final Wish */
+function typeFinalText() {
+  const text = 
+`Happy Valentine’s Day baby ❤️
+
+This is my first Valentine’s Day
+after a long gap…
+and it feels special because of YOU.
+
+Don’t feel bad that we can’t meet.
+So I made this small world for us.
+
+Sometimes I may hurt you,
+but I can’t live without you.
+
+Jagavaa marethe
+Ninnaa berethe…
+Hosadondhu looo..ka nodidhe
+
+I am lucky every single day
+because you came into my life.
+
+Thank you for reading,
+thank you for feeling,
+thank you for being mine 💖`;
+
+  let i = 0;
+  const el = document.getElementById("finalText");
+  const interval = setInterval(() => {
+    el.innerHTML += text.charAt(i);
+    i++;
+    if (i >= text.length) clearInterval(interval);
+  }, 45);
+}
