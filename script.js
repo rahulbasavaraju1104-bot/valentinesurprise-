@@ -17,9 +17,15 @@ const slides = [
 
   { t:"Our Memories ❤️", c:"" },
 
-  { t:"My Wish", c:"Will you be my Valentine?\nWill you marry me? ❤️" },
-
-  { t:"Forever Us 💖", c:"Happy Valentine’s Day baby.\nThis is my first Valentine after long gap.\nI prepared this with all my heart.\n— Rahul ❤️" }
+  { t:"Forever Us 💖", c:
+    "Happy Valentine’s Day baby ❤️\n\n" +
+    "This is my first Valentine’s Day after a long gap,\n" +
+    "and I am very happy because of you.\n\n" +
+    "Sometimes I may hurt you,\n" +
+    "but I can’t live without you.\n\n" +
+    "Thank you for coming into my life.\n" +
+    "— Rahul ❤️"
+  }
 ];
 
 let index = 0;
@@ -32,20 +38,24 @@ function typeText(text) {
   clearInterval(typingInterval);
 
   typingInterval = setInterval(() => {
-    el.innerHTML += text.charAt(i);
+    el.innerHTML += text[i] === "\n" ? "<br>" : text[i];
     i++;
     if (i >= text.length) clearInterval(typingInterval);
   }, 45);
 }
 
 function showSlide() {
+  if (index >= slides.length) return;
   const s = slides[index];
 
-  if (index === 11) {
+  // Memories slideshow
+  if (s.t === "Our Memories ❤️") {
     document.getElementById("screen").innerHTML = `
-      <h1>Our Memories ❤️</h1>
-      <div class="slideshow">
-        <img id="slideImg" src="images/pic1.jpg">
+      <div class="card">
+        <h1>Our Memories ❤️</h1>
+        <div class="slideshow">
+          <img id="slideImg" src="images/pic1.jpg">
+        </div>
       </div>
       <button class="heart-btn" onclick="next()">❤️ Continue</button>
     `;
@@ -53,6 +63,25 @@ function showSlide() {
     return;
   }
 
+  // FINAL GRAND SCREEN
+  if (s.t === "Forever Us 💖") {
+    document.getElementById("screen").innerHTML = `
+      <div class="final-grand">
+        <div class="photo-row">
+          <img src="images/her.jpg" class="final-pic">
+          <img src="images/me.jpg" class="final-pic">
+        </div>
+
+        <h1 class="final-title">Happy Valentine’s Day ❤️</h1>
+        <p id="text" class="final-text"></p>
+      </div>
+    `;
+    typeText(s.c);
+    setInterval(createHeart, 350);
+    return;
+  }
+
+  // Normal screens
   document.getElementById("screen").innerHTML = `
     <div class="card">
       <h1>${s.t}</h1>
@@ -60,7 +89,6 @@ function showSlide() {
     </div>
     <button class="heart-btn" onclick="next()">❤️ Continue</button>
   `;
-
   typeText(s.c);
 }
 
@@ -74,14 +102,23 @@ function startSlideshow() {
   }, 6000);
 }
 
+function createHeart() {
+  const h = document.createElement("div");
+  h.className = "heart";
+  h.innerHTML = "❤️";
+  h.style.left = Math.random() * 100 + "vw";
+  h.style.fontSize = (16 + Math.random() * 20) + "px";
+  document.body.appendChild(h);
+  setTimeout(() => h.remove(), 7000);
+}
+
 function next() {
   const music = document.getElementById("bgm");
-  if (music.paused) {
+  if (music && music.paused) {
     music.play().catch(()=>{});
   }
-
   index++;
-  if (index < slides.length) showSlide();
+  showSlide();
 }
 
 showSlide();
