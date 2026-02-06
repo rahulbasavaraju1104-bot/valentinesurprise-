@@ -114,11 +114,14 @@ function createHeart() {
 
 function next() {
   const music = document.getElementById("bgm");
+
+  // Start music on first user interaction
   if (music && music.paused) {
-    music.play().catch(()=>{});
+    music.volume = 0.6;   // soft romantic volume
+    music.play().catch(() => {});
   }
+
   index++;
   showSlide();
 }
 
-showSlide();
