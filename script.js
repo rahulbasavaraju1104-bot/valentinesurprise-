@@ -1,19 +1,19 @@
 const slides = [
-  { t:"Yuktha ❤️", c:"This is a very small surprise.\nPlease don’t feel bad…\nBecause we are in long distance." },
-  { t:"From Rahul", c:"I want to tell you something…" },
+  { t:"Hey Yuktha 💖", c:"This is a very small gift / surprise maa..\nPlease don’t feel bad…\nBecause we are in long distance." },
+  { t:"From Rahul", c:"I want to tell you something…\nClick continue to know that..." },
 
-  { t:"Rose Day 🌹", c:"Feb 7\nI am giving you a rose.\nPlease take it with my heart." },
-  { t:"Propose Day 💍", c:"Feb 8\nI choose you.\nYou are my happiness.\nI am lucky to have you." },
-  { t:"Chocolate Day 🍫", c:"Feb 9\nYour smile is sweeter than chocolate." },
+  { t:"Rose Day 🌹", c:"Feb 7\nJust like this rose, my love for you keeps blooming more beautiful every day. \nI am giving you a rose.\nPlease take it with my heart." },
+  { t:"Propose Day 💍", c:"Feb 8\nEvery love story is special, but ours is my favorite. Will you always be mine?\nI choose you.\nYou are my happiness.\nI am lucky to have you." },
+  { t:"Chocolate Day 🍫", c:"Feb 9\nLife with you is sweeter than chocolate and warmer than love.\nYour smile is sweeter than chocolate." },
   { t:"Promise Day 🤞", c:"Feb 11\nI promise you.\nI will always stand with you." },
-  { t:"Hug Day 🤍", c:"Feb 12\nA warm hug from far away." },
-  { t:"Kiss Day 💋", c:"Feb 13\nMissing you deeply." },
+  { t:"Hug Day 🤍", c:"Feb 12\nIf hugs could speak, mine would say “stay with me forever.”\nA warm hug from far away." },
+  { t:"Kiss Day 💋", c:"Feb 13\nOne kiss from you is enough to silence my worries and fill my heart with peace.\nMissing you deeply." },
 
-  { t:"Valentine’s Day ❤️", c:"Feb 14\nMy heart always belongs to you." },
+  { t:"Valentine’s Day ❤️", c:"Feb 14\nMy heart always belongs to you.\nI don’t need a special day to love you… but today I want to say it louder — I love you forever },
 
   { t:"My Truth", c:"Sometimes I may hurt you,\nbut I can’t live without you.\n\nJagavaa marethe\nNinnaa berethe...\nHosadondhu looo..ka nodidhe" },
 
-  { t:"My Question", c:"How did I change your life?\nHow do you feel about me?" },
+  { t:"My Dear Yukthaa", c:"Thank you so much for changing me like this and you made my life beautiful \nDont know what do you feel about me? but I am very lucky to have you in my life" },
 
   { t:"Our Memories ❤️", c:"" },
 
